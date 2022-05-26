@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">SamoApp</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="crie_uma_conta_aqui">Crie uma conta aqui!</string>
+    <string name="e_mail">E-mail</string>
+    <string name="esqueci_a_senha">Esqueci a senha</string>
+    <string name="fa_a_seu_login">Faça seu login.</string>
+    <string name="login">Login</string>
+    <string name="logo_da_samo">Logo da Samo</string>
+    <string name="senha">Senha</string>
+    <string name="insira_seus_dados_pessoais_para_fazer_o_cadastro_na_plataforma">Insira seus dados pessoais para fazer o cadastro na plataforma.</string>
+    <string name="cadastro_de_conta">Cadastro de conta</string>
+    <string name="nome">Nome</string>
+    <string name="insira_seu_email_cadastrado_para_redefinir_sua_senha">Insira seu email cadastrado para redefinir sua senha.</string>
+</resources>
