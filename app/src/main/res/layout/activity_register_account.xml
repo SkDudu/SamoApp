@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fff"
     tools:context=".RegisterAccount">
 
     <Button
@@ -16,6 +17,7 @@
         android:backgroundTint="#090C08"
         android:fontFamily="@font/lato"
         android:text="Cadastrar"
+        android:textColor="#fff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -114,7 +116,7 @@
             android:layout_weight="0"
             android:background="#fff"
             android:contentDescription="Voltar para a tela anterior"
-            app:srcCompat="@drawable/ic_baseline_arrow_back_24"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
         <TextView

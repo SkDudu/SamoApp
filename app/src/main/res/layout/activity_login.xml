@@ -128,6 +128,7 @@
         android:backgroundTint="#090C08"
         android:fontFamily="@font/lato"
         android:text="@string/login"
+        android:textColor="#fff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
