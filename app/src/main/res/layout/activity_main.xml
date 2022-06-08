@@ -81,7 +81,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="16dp"
                 android:fontFamily="@font/lato_bold"
-                android:text="SALDO"
+                android:text="R$ 10.465,59"
                 android:textColor="#fff"
                 android:textSize="22sp" />
 

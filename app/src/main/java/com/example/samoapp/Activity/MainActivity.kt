@@ -5,15 +5,17 @@ import android.os.Bundle
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
-import android.widget.Button
 import android.widget.ImageButton
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.samoapp.R
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var mSettings: ImageButton
+    private lateinit var mFAB: FloatingActionButton
+
+    private var mUserId = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +28,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         mSettings = findViewById(R.id.btn_mainactivity_settings)
         mSettings.setOnClickListener(this)
+
+        mFAB = findViewById(R.id.floatingActionButton)
+        mFAB.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
@@ -35,5 +40,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(it)
             }
         }
+
+        when(view?.id){
+            R.id.floatingActionButton -> {
+                ItemListDialogFragment.newInstance(30).show(supportFragmentManager, "dialog")
+            }
+        }
     }
 }
+
