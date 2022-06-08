@@ -1,13 +1,21 @@
-package com.example.samoapp
+package com.example.samoapp.Activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import com.example.samoapp.R
+import com.example.samoapp.Repository.DatabaseUtil
+import com.example.samoapp.Repository.UserDAO
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -17,6 +25,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var mLoginEmail: EditText
     private lateinit var mLoginPass: EditText
 
+    private lateinit var mLoginExec: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +44,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
         mRegisterAcc = findViewById(R.id.textView_loginactivity_registerAccount)
         mRegisterAcc.setOnClickListener(this)
+
+        mLoginExec = findViewById(R.id.btn_login_action)
+        mLoginExec.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -46,6 +58,39 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             R.id.textView_loginactivity_forgotPass -> {
                 val it =Intent(this, ForgotPassActivity::class.java)
                 startActivity(it)
+            }
+
+            R.id.btn_login_action -> ExecLogin()
+        }
+    }
+
+    private fun ExecLogin() {
+        val email = mLoginEmail.text.toString()
+        val password = mLoginPass.text.toString()
+
+        var isFormFilled = true
+
+        if(email.isBlank()){
+            mLoginEmail.error = "Campo obrigatório"
+            isFormFilled = false
+        }
+        if(password.isBlank()){
+            mLoginPass.error = "Campo obrigatório"
+            isFormFilled = false
+        }
+
+        if(isFormFilled){
+            GlobalScope.launch {
+                val userDAO = DatabaseUtil.getInstance(applicationContext).getUserDAO()
+                val user = userDAO.findByEmail(email)
+                if(user != null){
+                    if(user.password == password){
+                        val it = Intent(applicationContext, MainActivity::class.java)
+                        it.putExtra("userId", user.id)
+                        startActivity(it)
+                        finish()
+                    }
+                }
             }
         }
     }

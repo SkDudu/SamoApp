@@ -1,4 +1,4 @@
-package com.example.samoapp
+package com.example.samoapp.Activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,8 +7,9 @@ import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.ImageButton
+import com.example.samoapp.R
 
-class ForgotPassActivity : AppCompatActivity(), View.OnClickListener {
+class SettingsActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var mBack: ImageButton
 
@@ -19,16 +20,16 @@ class ForgotPassActivity : AppCompatActivity(), View.OnClickListener {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         supportActionBar?.hide();
 
-        setContentView(R.layout.activity_forgot_pass)
+        setContentView(R.layout.activity_settings)
 
-        mBack = findViewById(R.id.btn_forgotpassactivity_back)
+        mBack = findViewById(R.id.btn_settingsactivity_back)
         mBack.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
         when(view?.id){
-            R.id.btn_forgotpassactivity_back -> {
-                val it = Intent(this, LoginActivity::class.java)
+            R.id.btn_settingsactivity_back -> {
+                val it = Intent(this, MainActivity::class.java)
                 startActivity(it)
                 finish()
             }
