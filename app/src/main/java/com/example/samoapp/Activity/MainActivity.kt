@@ -8,6 +8,9 @@ import android.view.WindowManager
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import com.example.samoapp.R
+import com.example.samoapp.databinding.ActivityMainBinding
+import com.example.samoapp.databinding.CustomBottomSheetBinding
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -15,10 +18,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var mSettings: ImageButton
     private lateinit var mFAB: FloatingActionButton
 
+    private lateinit var binding: ActivityMainBinding
+
     private var mUserId = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(
@@ -27,13 +34,22 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         );
         supportActionBar?.hide();
 
-        setContentView(R.layout.activity_main)
+        setContentView(binding.root)
 
         mSettings = findViewById(R.id.btn_mainactivity_settings)
         mSettings.setOnClickListener(this)
 
-        mFAB = findViewById(R.id.floatingActionButton)
-        mFAB.setOnClickListener(this)
+        binding.floatingActionButton.setOnClickListener{showBottonSheetDialog()}
+    }
+
+    private fun showBottonSheetDialog() {
+        val dialog = BottomSheetDialog(this)
+
+        val sheetBinding: CustomBottomSheetBinding =
+            CustomBottomSheetBinding.inflate(layoutInflater, null, false)
+
+        dialog.setContentView(sheetBinding.root)
+        dialog.show()
     }
 
     override fun onClick(view: View?) {
