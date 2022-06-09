@@ -44,7 +44,7 @@ class SettingsActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btn_logoff_action -> {
                 val it = Intent(this, LoginActivity::class.java)
                 startActivity(it)
-                finish()
+                finishAffinity()
             }
         }
     }

@@ -21,7 +21,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        this.getWindow().setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        );
         supportActionBar?.hide();
 
         setContentView(R.layout.activity_main)
@@ -34,16 +37,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(view: View?) {
-        when(view?.id){
+        when (view?.id) {
             R.id.btn_mainactivity_settings -> {
                 val it = Intent(this, SettingsActivity::class.java)
                 startActivity(it)
             }
         }
 
-        when(view?.id){
+        when (view?.id) {
             R.id.floatingActionButton -> {
-                ItemListDialogFragment.newInstance(30).show(supportFragmentManager, "dialog")
+
             }
         }
     }
