@@ -1,7 +1,6 @@
 package com.example.samoapp.Activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.Window
@@ -10,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.samoapp.Entity.User
 import com.example.samoapp.R
 import com.example.samoapp.Repository.DatabaseUtil
@@ -21,6 +21,7 @@ class RegisterAccount : AppCompatActivity(), View.OnClickListener {
     private lateinit var mBack: ImageButton
     private lateinit var mRegisterName: EditText
     private lateinit var mRegisterEmail: EditText
+    private lateinit var mRegisterPhoneNumber: EditText
     private lateinit var mRegisterPassword: EditText
     private lateinit var mRegisterSave: Button
 
@@ -41,6 +42,9 @@ class RegisterAccount : AppCompatActivity(), View.OnClickListener {
 
         mRegisterEmail = findViewById(R.id.editText_registeraccountactivity_email)
         mRegisterEmail.setOnClickListener(this)
+
+        mRegisterPhoneNumber = findViewById(R.id.editText_registeraccountactivity_phonenumber)
+        mRegisterPhoneNumber.setOnClickListener(this)
 
         mRegisterPassword = findViewById(R.id.editText_registeraccountactivity_password)
         mRegisterPassword.setOnClickListener(this)
@@ -65,18 +69,21 @@ class RegisterAccount : AppCompatActivity(), View.OnClickListener {
     private fun doSaveAction() {
         val name = mRegisterName.text.toString().trim()
         val email = mRegisterEmail.text.toString().trim()
+        val phone = mRegisterPhoneNumber.text.toString().trim()
         val password = mRegisterPassword.text.toString().trim()
 
         var IsFormFilled = true
 
         IsFormFilled = IsNameFilled(name) && IsFormFilled
         IsFormFilled = IsEmailFilled(email) && IsFormFilled
+        IsFormFilled = IsPhonelFilled(phone) && IsFormFilled
         IsFormFilled = IsPasswordFilled(password) && IsFormFilled
 
         if (IsFormFilled) {
             val user = User(
                 name = name,
                 email = email,
+                phone = phone,
                 password = password
             )
 
@@ -105,6 +112,15 @@ class RegisterAccount : AppCompatActivity(), View.OnClickListener {
     private fun IsEmailFilled(email: CharSequence): Boolean {
         return if (email.isBlank()) {
             mRegisterEmail.error = "Este campo é obrigatório!"
+            false
+        } else {
+            true
+        }
+    }
+
+    private fun IsPhonelFilled(phone: CharSequence): Boolean {
+        return if (phone.isBlank()) {
+            mRegisterPhoneNumber.error = "Este campo é obrigatório!"
             false
         } else {
             true

@@ -1,19 +1,16 @@
 package com.example.samoapp.Activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.example.samoapp.R
 import com.example.samoapp.Repository.DatabaseUtil
-import com.example.samoapp.Repository.UserDAO
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -74,6 +71,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             mLoginEmail.error = "Campo obrigatório"
             isFormFilled = false
         }
+
         if(password.isBlank()){
             mLoginPass.error = "Campo obrigatório"
             isFormFilled = false
