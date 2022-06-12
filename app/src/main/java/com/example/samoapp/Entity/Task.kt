@@ -9,13 +9,11 @@ import androidx.room.PrimaryKey
 )
 data class Task(
     @PrimaryKey
-    val id:Int? = null,
-    val title:String,
-    val description:String,
-
-    @ColumnInfo(name = "is_finished")
-    val isFinished:Boolean,
+    val id: Int? = null,
+    val title: String,
+    val description: String,
+    val value: String,
 
     @ColumnInfo(name = "user_id")
-    val userId:Int
+    val userId: Int
 )
