@@ -87,8 +87,7 @@ class RegisterExpensiveActivity : AppCompatActivity(), View.OnClickListener {
                 description = descricao,
                 value = valor,
                 type = type,
-                userId = mUserId,
-                saldo = mSaldo
+                userId = mUserId
             )
 
             GlobalScope.launch {

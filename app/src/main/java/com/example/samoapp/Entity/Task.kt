@@ -16,8 +16,5 @@ data class Task(
     val type: String,
 
     @ColumnInfo(name = "user_id")
-    val userId: Int,
-
-    @ColumnInfo(name = "user_saldo")
-    val saldo: Float
+    val userId: Int
 )

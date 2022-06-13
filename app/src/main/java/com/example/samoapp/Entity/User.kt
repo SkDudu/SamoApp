@@ -16,5 +16,5 @@ data class User(
     val email: String,
     val phone: String,
     val password: String,
-    val saldo: Float
+    var saldo: Double
 )

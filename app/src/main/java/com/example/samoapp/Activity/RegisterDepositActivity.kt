@@ -72,9 +72,9 @@ class RegisterDepositActivity : AppCompatActivity(), View.OnClickListener {
         val title = mTitle.text.toString().trim()
         val descricao = mDescription.text.toString().trim()
         val type = "Depósito"
-        val valorFloat = mValue.text.toString().toFloat() //valor da operação em float
-        val valorString = "R$ " + mValue.text.toString().trim() //mostrar o valor em string no item da recycleview
-        val saldo = mValue.text.toString().toFloat()
+        val valorString =
+            "R$ " + mValue.text.toString().trim() //mostrar o valor em string no item da recycleview
+        val valorDouble = mValue.text
 
         var IsFormFilled = true
 
@@ -83,17 +83,24 @@ class RegisterDepositActivity : AppCompatActivity(), View.OnClickListener {
 
         if (IsFormFilled) {
             val task = Task(
-                    title = title,
-                    description = descricao,
-                    value = valorString,
-                    type = type,
-                    saldo = valorFloat,
-                    userId = mUserId
+                title = title,
+                description = descricao,
+                value = valorString,
+                type = type,
+                userId = mUserId
             )
+
 
             GlobalScope.launch {
                 val taskDAO = DatabaseUtil.getInstance(applicationContext).getTaskDAO()
                 taskDAO.insert(task)
+
+
+
+               // val userDAO = DatabaseUtil.getInstance(applicationContext).getUserDAO()
+               // var user = userDAO.findById(mUserId)
+                //user.saldo += mValue.text.toDouble()
+               // userDAO.update(user = user)
             }
 
             Toast.makeText(

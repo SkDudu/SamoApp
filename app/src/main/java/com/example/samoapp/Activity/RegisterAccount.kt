@@ -70,7 +70,7 @@ class RegisterAccount : AppCompatActivity(), View.OnClickListener {
         val name = mRegisterName.text.toString().trim()
         val email = mRegisterEmail.text.toString().trim()
         val phone = mRegisterPhoneNumber.text.toString().trim()
-        val saldo = 0.0f
+        val saldo = 0.00
         val password = mRegisterPassword.text.toString().trim()
 
         var IsFormFilled = true
