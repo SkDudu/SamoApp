@@ -54,6 +54,7 @@
         android:hint="Títutlo do gasto"
         android:inputType="textPersonName"
         android:paddingStart="8dp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
@@ -70,6 +71,7 @@
         android:hint="Descrição"
         android:inputType="textPersonName"
         android:paddingStart="8dp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -87,6 +89,7 @@
         android:hint="Valor do gasto"
         android:inputType="number"
         android:paddingStart="8dp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

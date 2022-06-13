@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".Activity.RegisterDepositActivity">
 
     <LinearLayout
@@ -54,6 +55,7 @@
         android:hint="Titulo do depósito"
         android:inputType="textPersonName"
         android:paddingStart="8dp"
+        android:textColor="@color/black"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,6 +73,7 @@
         android:hint="Descrição do depósito"
         android:inputType="textPersonName"
         android:paddingStart="8dp"
+        android:textColor="@color/black"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -89,6 +92,7 @@
         android:hint="Valor do depósito"
         android:inputType="numberDecimal"
         android:paddingStart="8dp"
+        android:textColor="@color/black"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

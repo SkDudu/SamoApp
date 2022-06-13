@@ -3,6 +3,8 @@ package com.example.samoapp.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.Window
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
@@ -28,7 +30,16 @@ class RegisterExpensiveActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        );
+
         setContentView(R.layout.activity_register_expensive)
+
+        supportActionBar?.hide();
 
         mUserId = intent.getIntExtra("userId", -1)
         mTaskId = intent.getIntExtra("taskId", -1)

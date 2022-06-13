@@ -8,6 +8,7 @@ import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var mSettings: ImageButton
     private lateinit var mRecycle: RecyclerView
+    private lateinit var mName: TextView
 
     private lateinit var binding: ActivityMainBinding
 
@@ -36,7 +38,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         val iduser = intent.getIntExtra("userId", -1)
-
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(
