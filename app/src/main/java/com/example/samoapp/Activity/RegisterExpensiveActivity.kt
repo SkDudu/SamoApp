@@ -14,10 +14,10 @@ import com.example.samoapp.Repository.DatabaseUtil
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class RegisterDepositActivity : AppCompatActivity(), View.OnClickListener {
+class RegisterExpensiveActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var mBack: ImageButton
-    private lateinit var mRegisterDeposit: Button
+    private lateinit var mRegisterExpense: Button
 
     private lateinit var mTitle: EditText
     private lateinit var mDescription: EditText
@@ -28,25 +28,25 @@ class RegisterDepositActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register_deposit)
+        setContentView(R.layout.activity_register_expensive)
 
         mUserId = intent.getIntExtra("userId", -1)
         mTaskId = intent.getIntExtra("taskId", -1)
 
-        mBack = findViewById(R.id.imageButton_registerdeposit_back)
+        mBack = findViewById(R.id.imageButton_registerexpensive_back)
         mBack.setOnClickListener(this)
 
-        mRegisterDeposit = findViewById(R.id.button_registerexpense_registerdeposit)
-        mRegisterDeposit.setOnClickListener(this)
+        mRegisterExpense = findViewById(R.id.button_registerexpensive_action)
+        mRegisterExpense.setOnClickListener(this)
 
-        mTitle = findViewById(R.id.editText_registerdeposit_title)
-        mDescription = findViewById(R.id.editText_registerdeposit_description)
-        mValue = findViewById(R.id.editText_registerdeposit_value)
+        mTitle = findViewById(R.id.editText_registerexpense_title)
+        mDescription = findViewById(R.id.editText_registerexpense_description)
+        mValue = findViewById(R.id.editText_registerexpense_value)
     }
 
     override fun onClick(view: View?) {
         when (view?.id) {
-            R.id.imageButton_registerdeposit_back -> {
+            R.id.imageButton_registerexpensive_back -> {
                 val it = Intent(this, MainActivity::class.java)
                 startActivity(it)
                 finish()
@@ -54,11 +54,11 @@ class RegisterDepositActivity : AppCompatActivity(), View.OnClickListener {
         }
 
         when (view?.id) {
-            R.id.button_registerexpense_registerdeposit -> DoRegisterAction()
+            R.id.button_registerexpensive_action -> DoRegisterExpensiveAction()
         }
     }
 
-    private fun DoRegisterAction() {
+    private fun DoRegisterExpensiveAction() {
         val title = mTitle.text.toString().trim()
         val descricao = mDescription.text.toString().trim()
         val valor = mValue.text.toString().trim()
@@ -70,10 +70,10 @@ class RegisterDepositActivity : AppCompatActivity(), View.OnClickListener {
 
         if (IsFormFilled) {
             val task = Task(
-                    title = title,
-                    description = descricao,
-                    value = valor,
-                    userId = mUserId
+                title = title,
+                description = descricao,
+                value = valor,
+                userId = mUserId
             )
 
             GlobalScope.launch {
@@ -105,18 +105,6 @@ class RegisterDepositActivity : AppCompatActivity(), View.OnClickListener {
             false
         } else {
             true
-        }
-    }
-
-    override fun onResume(){
-        super.onResume()
-
-        if(mTaskId != -1){
-            //atualizar task existente.
-            mRegisterDeposit.text = "Atualizar despesa"
-        }else{
-            //cadastrar task.
-            mRegisterDeposit.text = "Cadastrar despesa"
         }
     }
 }

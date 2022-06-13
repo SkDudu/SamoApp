@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import com.example.samoapp.Entity.Task
 import com.example.samoapp.Entity.User
 
-@Database(entities = [User::class, Task::class], version = 5)
+@Database(entities = [User::class, Task::class], version = 10)
 abstract class TaskDatabase : RoomDatabase(){
     abstract fun getUserDAO(): UserDAO
     abstract fun getTaskDAO(): TaskDAO

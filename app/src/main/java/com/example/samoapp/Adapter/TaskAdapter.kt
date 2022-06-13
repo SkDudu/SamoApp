@@ -13,6 +13,7 @@ class TaskAdapter(val tasks: List<Task>): RecyclerView.Adapter<TaskAdapter.TaskV
     class TaskViewHolder(view: View): RecyclerView.ViewHolder(view){
 
         val mTitle: TextView = view.findViewById(R.id.textView_itemtask_title)
+        val mSubtitle: TextView = view.findViewById(R.id.textView_itemtask_subtitle)
         val mValue: TextView = view.findViewById(R.id.textView_itemtask_value)
 
     }
@@ -26,6 +27,7 @@ class TaskAdapter(val tasks: List<Task>): RecyclerView.Adapter<TaskAdapter.TaskV
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         holder.mTitle.text = tasks[position].title
+        holder.mSubtitle.text = "Depósito"
         holder.mValue.text = tasks[position].value
     }
 

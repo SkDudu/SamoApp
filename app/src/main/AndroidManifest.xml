@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SamoApp">
         <activity
-            android:name=".Activity.RegisterDepositActivity"
+            android:name=".Activity.RegisterExpensiveActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.RegisterExpenseActivity"
+            android:name=".Activity.RegisterDepositActivity"
             android:exported="false" />
         <activity
             android:name=".Activity.SettingsActivity"

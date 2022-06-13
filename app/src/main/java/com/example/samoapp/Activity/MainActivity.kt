@@ -2,12 +2,16 @@ package com.example.samoapp.Activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.samoapp.Adapter.TaskAdapter
 import com.example.samoapp.R
 import com.example.samoapp.Repository.DatabaseUtil
 import com.example.samoapp.databinding.ActivityMainBinding
@@ -23,12 +27,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityMainBinding
 
-    private var mUserId = -1
+    private val handler = Handler(Looper.getMainLooper())
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
+
+        val iduser = intent.getIntExtra("userId", -1)
+
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(
@@ -48,6 +56,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun showBottonSheetDialog() {
+        val mUserId = intent.getIntExtra("userId",-1 )
         val dialog = BottomSheetDialog(this)
         window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
 
@@ -60,12 +69,21 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             startActivity(it)
         }
 
+        sheetBinding.btnGastosBottomsheetactivity.setOnClickListener{
+            val it = Intent(this, RegisterExpensiveActivity::class.java)
+            it.putExtra("userId", mUserId)
+            startActivity(it)
+        }
+
         dialog.setContentView(sheetBinding.root)
         dialog.show()
     }
 
     override fun onStart() {
         super.onStart()
+
+        val mUserId = intent.getIntExtra("userId",-1 )
+
 
         GlobalScope.launch {
             val taskDAO = DatabaseUtil
@@ -74,10 +92,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
             val userWithTasks = taskDAO.findByUserId(mUserId)
 
-            //val taskAdapter = TaskAdapter(userWithTasks.tasks)
+            val taskAdapter = TaskAdapter(userWithTasks.tasks)
 
-            //mRecycle.layoutManager = LinearLayoutManager(this@MainActivity)
-            //mRecycle.adapter = taskAdapter
+            handler.post{
+                mRecycle.layoutManager = LinearLayoutManager(this@MainActivity)
+                mRecycle.adapter = taskAdapter
+            }
 
         }
     }

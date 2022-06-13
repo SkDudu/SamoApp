@@ -83,9 +83,11 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 val user = userDAO.findByEmail(email)
                 if(user != null){
                     if(user.password == password){
-                        val it = Intent(applicationContext, MainActivity::class.java)
-                        it.putExtra("userId", user.id)
-                        startActivity(it)
+                        //val intent = Intent(applicationContext, MainActivity::class.java)
+                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                        intent.putExtra("userId", user.id)
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                        startActivity(intent)
                         finish()
                     }
                 }

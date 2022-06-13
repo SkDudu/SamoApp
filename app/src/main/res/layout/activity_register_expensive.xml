@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.RegisterDepositActivity">
+    tools:context=".Activity.RegisterExpensiveActivity">
 
     <LinearLayout
-        android:id="@+id/linearLayout5"
+        android:id="@+id/linearLayout4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:elevation="1dp"
-        android:fadingEdgeLength="1dp"
         android:orientation="horizontal"
         android:paddingStart="8dp"
         android:paddingLeft="8dp"
@@ -24,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
-            android:id="@+id/imageButton_registerdeposit_back"
+            android:id="@+id/imageButton_registerexpensive_back"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="0"
@@ -32,18 +31,19 @@
             app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/lato_bold"
-            android:text="Cadastro de depósitos"
+            android:gravity="center_vertical"
+            android:text="Cadastro de despesas"
             android:textColor="@color/black"
             android:textSize="20sp" />
     </LinearLayout>
 
     <EditText
-        android:id="@+id/editText_registerdeposit_title"
+        android:id="@+id/editText_registerexpense_title"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginStart="8dp"
@@ -51,16 +51,15 @@
         android:layout_marginEnd="8dp"
         android:background="@drawable/custom_input"
         android:ems="10"
-        android:hint="Titulo do depósito"
+        android:hint="Títutlo do gasto"
         android:inputType="textPersonName"
         android:paddingStart="8dp"
-        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
 
     <EditText
-        android:id="@+id/editText_registerdeposit_description"
+        android:id="@+id/editText_registerexpense_description"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginStart="8dp"
@@ -68,17 +67,16 @@
         android:layout_marginEnd="8dp"
         android:background="@drawable/custom_input"
         android:ems="10"
-        android:hint="Descrição do depósito"
+        android:hint="Descrição"
         android:inputType="textPersonName"
         android:paddingStart="8dp"
-        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_registerdeposit_title" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_registerexpense_title" />
 
     <EditText
-        android:id="@+id/editText_registerdeposit_value"
+        android:id="@+id/editText_registerexpense_value"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginStart="8dp"
@@ -86,25 +84,23 @@
         android:layout_marginEnd="8dp"
         android:background="@drawable/custom_input"
         android:ems="10"
-        android:hint="Valor do depósito"
-        android:inputType="numberDecimal"
+        android:hint="Valor do gasto"
+        android:inputType="number"
         android:paddingStart="8dp"
-        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_registerdeposit_description" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_registerexpense_description" />
 
     <Button
-        android:id="@+id/button_registerexpense_registerdeposit"
+        android:id="@+id/button_registerexpensive_action"
         android:layout_width="0dp"
         android:layout_height="52dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="32dp"
-        android:text="Registrar depósito"
+        android:text="Cadastrar gasto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
