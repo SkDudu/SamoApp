@@ -27,6 +27,7 @@ class RegisterExpensiveActivity : AppCompatActivity(), View.OnClickListener {
 
     private var mUserId = -1
     private var mTaskId = -1
+    private var mSaldo = 0.0f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,7 +73,8 @@ class RegisterExpensiveActivity : AppCompatActivity(), View.OnClickListener {
     private fun DoRegisterExpensiveAction() {
         val title = mTitle.text.toString().trim()
         val descricao = mDescription.text.toString().trim()
-        val valor = mValue.text.toString().trim()
+        val type = "Gasto"
+        val valor = "- R$ " + mValue.text.toString().trim()
 
         var IsFormFilled = true
 
@@ -84,7 +86,9 @@ class RegisterExpensiveActivity : AppCompatActivity(), View.OnClickListener {
                 title = title,
                 description = descricao,
                 value = valor,
-                userId = mUserId
+                type = type,
+                userId = mUserId,
+                saldo = mSaldo
             )
 
             GlobalScope.launch {

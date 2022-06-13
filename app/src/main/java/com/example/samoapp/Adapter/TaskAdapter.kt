@@ -27,7 +27,7 @@ class TaskAdapter(val tasks: List<Task>): RecyclerView.Adapter<TaskAdapter.TaskV
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         holder.mTitle.text = tasks[position].title
-        holder.mSubtitle.text = "Depósito"
+        holder.mSubtitle.text = tasks[position].type
         holder.mValue.text = tasks[position].value
     }
 

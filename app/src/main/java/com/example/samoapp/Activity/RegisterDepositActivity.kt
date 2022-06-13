@@ -71,7 +71,10 @@ class RegisterDepositActivity : AppCompatActivity(), View.OnClickListener {
     private fun DoRegisterAction() {
         val title = mTitle.text.toString().trim()
         val descricao = mDescription.text.toString().trim()
-        val valor = mValue.text.toString().trim()
+        val type = "Depósito"
+        val valorFloat = mValue.text.toString().toFloat() //valor da operação em float
+        val valorString = "R$ " + mValue.text.toString().trim() //mostrar o valor em string no item da recycleview
+        val saldo = mValue.text.toString().toFloat()
 
         var IsFormFilled = true
 
@@ -82,7 +85,9 @@ class RegisterDepositActivity : AppCompatActivity(), View.OnClickListener {
             val task = Task(
                     title = title,
                     description = descricao,
-                    value = valor,
+                    value = valorString,
+                    type = type,
+                    saldo = valorFloat,
                     userId = mUserId
             )
 

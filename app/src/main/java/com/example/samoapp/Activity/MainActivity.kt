@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var mSettings: ImageButton
     private lateinit var mRecycle: RecyclerView
     private lateinit var mName: TextView
+    private lateinit var mSaldo: TextView
 
     private lateinit var binding: ActivityMainBinding
 
@@ -50,6 +51,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         mSettings = findViewById(R.id.btn_mainactivity_settings)
         mSettings.setOnClickListener(this)
+
+        mSaldo = findViewById(R.id.textView_saldo_mainactivity)
 
         mRecycle = findViewById(R.id.main_recycleview)
 
@@ -84,7 +87,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onStart()
 
         val mUserId = intent.getIntExtra("userId",-1 )
-
 
         GlobalScope.launch {
             val taskDAO = DatabaseUtil

@@ -70,6 +70,7 @@ class RegisterAccount : AppCompatActivity(), View.OnClickListener {
         val name = mRegisterName.text.toString().trim()
         val email = mRegisterEmail.text.toString().trim()
         val phone = mRegisterPhoneNumber.text.toString().trim()
+        val saldo = 0.0f
         val password = mRegisterPassword.text.toString().trim()
 
         var IsFormFilled = true
@@ -84,7 +85,8 @@ class RegisterAccount : AppCompatActivity(), View.OnClickListener {
                 name = name,
                 email = email,
                 phone = phone,
-                password = password
+                password = password,
+                saldo = saldo
             )
 
             GlobalScope.launch {
